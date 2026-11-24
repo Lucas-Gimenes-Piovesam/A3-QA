@@ -1,0 +1,93 @@
+{
+  "total": 10,
+  "passou": 6,
+  "falhou": 4,
+  "duracao_s": 1.12,
+  "ressalva": "Regras financeiras propostas, não especificação original; não compara com testes independentes do grupo",
+  "casos": [
+    {
+      "id": "IA-01",
+      "cenario": "Despesa válida positiva",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added."
+      ]
+    },
+    {
+      "id": "IA-02",
+      "cenario": "Despesa zero rejeitada",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added."
+      ]
+    },
+    {
+      "id": "IA-03",
+      "cenario": "Despesa negativa rejeitada",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added."
+      ]
+    },
+    {
+      "id": "IA-04",
+      "cenario": "Despesa não numérica rejeitada",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Invalid amount. Expense not added."
+      ]
+    },
+    {
+      "id": "IA-05",
+      "cenario": "Despesa NaN deve ser rejeitada (regra proposta)",
+      "resultado": "FALHOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added."
+      ]
+    },
+    {
+      "id": "IA-06",
+      "cenario": "Despesa Infinity deve ser rejeitada (regra proposta)",
+      "resultado": "FALHOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added."
+      ]
+    },
+    {
+      "id": "IA-07",
+      "cenario": "Orçamento NaN deve ser rejeitado (regra proposta)",
+      "resultado": "FALHOU",
+      "saida_relevante": [
+        "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to NaN"
+      ]
+    },
+    {
+      "id": "IA-08",
+      "cenario": "Orçamento negativo deve ser rejeitado (regra proposta)",
+      "resultado": "FALHOU",
+      "saida_relevante": [
+        "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to -100.0"
+      ]
+    },
+    {
+      "id": "IA-09",
+      "cenario": "Aviso quando gastos excedem orçamento",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to 50.0",
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+        "Warning: expenses for 2026-11 total 60.00, exceeding the budget of 50.00."
+      ]
+    },
+    {
+      "id": "IA-10",
+      "cenario": "Soma mensal correta",
+      "resultado": "PASSOU",
+      "saida_relevante": [
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+        "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+        "Enter your choice: Enter month (YYYY-MM): Total for 2026-11: 10.00"
+      ]
+    }
+  ]
+}
