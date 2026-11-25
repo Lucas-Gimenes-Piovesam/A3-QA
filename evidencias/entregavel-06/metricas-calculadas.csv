@@ -1,0 +1,16 @@
+id,grupo,caracteristica_iso_ou_dimensao,indicador,unidade,valor_observado,meta,decisao_gerencial,fonte
+P01,Produto,Adequação funcional,Testes JUnit aprovados,percentual,"100,0%",100%,Aceitar mudanças somente com a suíte verde,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713
+P02,Produto,Adequação funcional / confiabilidade,Cobertura de linhas P1,percentual,"100,0%",>= 85%,Exigir novos testes para lacunas em regras financeiras,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713
+P03,Produto,Adequação funcional / testabilidade,Cobertura de ramos P1,percentual,"100,0%",>= 90%,Cobrir decisões alternativas antes do merge,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713
+P04,Produto,Manutenibilidade,Checkstyle (regras configuradas),status,Aprovado,Aprovado,Inspecionar e corrigir violações de estilo bloqueadoras,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713
+P05,Produto,Capacidade de interação,Cenários JUnit de CLI aprovados,casos,9/9,100% dos cenários definidos,Ampliar cenários de entrada e persistência caso haja regressão,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713
+R01,Processo,CI,Taxa de workflows aprovados,percentual,"16,7%",>= 90% em janela de 10,"Reduzir falhas recorrentes, sem baixar o gate",https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions
+R02,Processo,CI,Duração média de workflows,segundos,"25,7 s",<= 120 s,Investigar lentidão caso a duração cresça,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions
+R03,Processo,Revisão,Tempo de abertura do PR até aprovação,tempo,20 min 1 s,<= 24 h,Pedir revisão antecipada se o tempo ultrapassar a meta,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1
+R04,Processo,Lead time interno,Tempo de abertura do PR ao merge,tempo,Não medido,<= 24 h,Remover gargalos de revisão e integração,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1
+R05,Processo,Cycle time interno,Tempo do primeiro commit da branch ao merge,tempo,Não medido,<= 48 h,Reduzir escopo e duração das branches,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1
+R06,Processo,Gestão de configuração,Revisão aprovada / PR integrado,estado,"Aprovado, ainda aberto",PR revisado + merge com gate verde,Concluir integração somente após requisitos cumpridos,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1
+D01,DORA (produção),Implantação,Deployment frequency,frequência,Não aplicável / não medido,Só definir se houver deploy real,Não usar publicação de pre-release como deploy,https://github.com/Lucas-Gimenes-Piovesam/A3-QA
+D02,DORA (produção),Entrega,Lead time for changes,tempo,Não aplicável / não medido,Só definir se houver produção,Medição requer commit e deployment de produção,https://github.com/Lucas-Gimenes-Piovesam/A3-QA
+D03,DORA (produção),Estabilidade,Change failure rate,percentual,Não aplicável / não medido,Só definir se houver produção,Não confundir falha de pipeline com falha de deploy,https://github.com/Lucas-Gimenes-Piovesam/A3-QA
+D04,DORA (produção),Recuperação,Failed deployment recovery time,tempo,Não aplicável / não medido,Só definir se houver produção,Não confundir correção de CI com recuperação de serviço,https://github.com/Lucas-Gimenes-Piovesam/A3-QA

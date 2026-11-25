@@ -1,0 +1,7 @@
+run_id,evento,inicio_utc,fim_utc,duracao_segundos,conclusao,url
+45519713000,push,2026-11-25T00:39:01Z,2026-11-25T00:39:17Z,16,failure,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519713000
+45519906091,push,2026-11-25T00:40:28Z,2026-11-25T00:40:51Z,23,failure,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519906091
+45520193389,push,2026-11-25T00:42:42Z,2026-11-25T00:43:09Z,27,failure,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45520193389
+45521164157,push,2026-11-25T00:50:11Z,2026-11-25T00:50:45Z,34,failure,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521164157
+45521550391,pull_request,2026-11-25T00:53:10Z,2026-11-25T00:53:34Z,24,failure,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521550391
+45522943713,pull_request,2026-11-25T01:04:12Z,2026-11-25T01:04:42Z,30,success,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713

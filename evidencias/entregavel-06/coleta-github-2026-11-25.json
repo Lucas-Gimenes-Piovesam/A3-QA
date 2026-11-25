@@ -1,0 +1,89 @@
+{
+  "tipo": "transcricao_de_fatos_verificados_por_consulta_as_APIs_publicas_do_GitHub",
+  "data_referencia_utc": "2026-11-25",
+  "repositorio": "Lucas-Gimenes-Piovesam/A3-QA",
+  "fonte_geral": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA",
+  "fonte_requisito": "A3 JESSE(1).pdf, pagina 5: Entregavel 6 - metricas e indicadores",
+  "escopo": "Dados observados do projeto do grupo; nao representa monitoramento em producao",
+  "branch_main": {
+    "sha_observado": "61978f1a3215980c74a17a3f970e2504f3ad01db",
+    "protegida": true,
+    "fonte": "https://api.github.com/repos/Lucas-Gimenes-Piovesam/A3-QA/branches"
+  },
+  "pull_request": {
+    "numero": 1,
+    "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1",
+    "created_at": "2026-11-25T00:53:05Z",
+    "state_no_snapshot": "open",
+    "merged_at": null,
+    "branch_origem": "docs/entregavel-05-gestao-configuracao",
+    "branch_destino": "main",
+    "primeiro_commit_da_branch_em": "2026-11-25T00:48:41Z",
+    "primeiro_commit_fonte": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/commit/171bb8918a4e1f30dbb6347d93cf1367a147bece",
+    "head_sha_observado": "d84f521d712e1c033154d79d66d399118c603ac1",
+    "reviews": [
+      {
+        "autor": "EduardoJuvenasso",
+        "resultado": "APPROVED",
+        "submitted_at": "2026-11-25T01:13:06Z",
+        "fonte": "https://api.github.com/repos/Lucas-Gimenes-Piovesam/A3-QA/pulls/1/reviews"
+      }
+    ]
+  },
+  "quality_gate_ultima_execucao": {
+    "run_id": 45522943713,
+    "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713",
+    "sha": "d84f521d712e1c033154d79d66d399118c603ac1",
+    "status": "completed",
+    "conclusion": "success",
+    "tests_run": 33,
+    "test_failures": 0,
+    "test_errors": 0,
+    "test_skipped": 0,
+    "test_breakdown": {
+      "CliFinancialIntegrationTest": 9,
+      "InfrastructureSmokeTest": 6,
+      "FinancialBranchCoverageTest": 5,
+      "ExpenseAmountTest": 7,
+      "CsvRoundTripJUnitTest": 2,
+      "FinancialRulesTest": 4
+    },
+    "p1_methods": [
+      "addExpense",
+      "updateExpense",
+      "viewSummary",
+      "viewMonthlySummary",
+      "filterByCategory",
+      "viewCategorySummary",
+      "manageBudget",
+      "warnIfOverBudget",
+      "monthTotal"
+    ],
+    "p1_line_covered": 145,
+    "p1_line_missed": 0,
+    "p1_branch_covered": 64,
+    "p1_branch_missed": 0,
+    "checkstyle_step": "success",
+    "maven_verify_step": "success",
+    "fonte_log": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713"
+  },
+  "ci_runs": [
+    {"run_id": 45519713000, "event": "push", "created_at": "2026-11-25T00:39:01Z", "updated_at": "2026-11-25T00:39:17Z", "conclusion": "failure", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519713000"},
+    {"run_id": 45519906091, "event": "push", "created_at": "2026-11-25T00:40:28Z", "updated_at": "2026-11-25T00:40:51Z", "conclusion": "failure", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519906091"},
+    {"run_id": 45520193389, "event": "push", "created_at": "2026-11-25T00:42:42Z", "updated_at": "2026-11-25T00:43:09Z", "conclusion": "failure", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45520193389"},
+    {"run_id": 45521164157, "event": "push", "created_at": "2026-11-25T00:50:11Z", "updated_at": "2026-11-25T00:50:45Z", "conclusion": "failure", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521164157"},
+    {"run_id": 45521550391, "event": "pull_request", "created_at": "2026-11-25T00:53:10Z", "updated_at": "2026-11-25T00:53:34Z", "conclusion": "failure", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521550391"},
+    {"run_id": 45522943713, "event": "pull_request", "created_at": "2026-11-25T01:04:12Z", "updated_at": "2026-11-25T01:04:42Z", "conclusion": "success", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713"}
+  ],
+  "releases": [
+    {"tag": "v0.1.0-baseline", "prerelease": true, "published_at": "2026-11-25T00:59:59Z", "sha": "6b55f9d3f38012f1bcf1e05b272740bdb0ce8571", "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/releases/tag/v0.1.0-baseline"}
+  ],
+  "advertencias": [
+    "Nenhum deploy em producao foi demonstrado; indicadores DORA de producao nao sao mensuraveis.",
+    "O Pull Request 1 esta aprovado mas ainda aberto no instante desta coleta; tempo para merge nao e mensuravel.",
+    "Os dados sao uma amostra pequena, de configuracao inicial da CI, e nao refletem tendencias estaveis.",
+    "Cobertura 100% e restrita a nove metodos P1; nao corresponde a cobertura global, nem garante ausencia de erros.",
+    "As primeiras execucoes da CI falharam durante a configuracao incremental do fluxo, nao em producao.",
+    "Metrica de cycle time so sera calculada apos o primeiro merge efetivamente observado."
+  ]
+}
