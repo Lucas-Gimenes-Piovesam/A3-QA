@@ -1,0 +1,12 @@
+# Maven, IDE e compilacao local
+/target/
+*.class
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Arquivos de dados gerados pela aplicacao
+expenses.txt
+budgets.txt
+expenses_export.csv
