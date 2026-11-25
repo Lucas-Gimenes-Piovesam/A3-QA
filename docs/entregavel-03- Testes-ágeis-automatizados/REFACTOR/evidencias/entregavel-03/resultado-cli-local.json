@@ -1,0 +1,57 @@
+[
+  {
+    "case": "despesa_NaN",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": ""
+    },
+    "verdict": true
+  },
+  {
+    "case": "despesa_Infinity",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": ""
+    },
+    "verdict": true
+  },
+  {
+    "case": "despesa_valida",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": "2026-11-24,Cafe,12.5,Food\n"
+    },
+    "verdict": true
+  },
+  {
+    "case": "orcamento_negativo",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Invalid amount. Budget must be zero or greater and finite.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": ""
+    },
+    "verdict": true
+  },
+  {
+    "case": "orcamento_NaN",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Invalid amount. Budget must be zero or greater and finite.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": ""
+    },
+    "verdict": true
+  },
+  {
+    "case": "orcamento_zero",
+    "exit": 0,
+    "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to 0.0\nBudget for 2026-11: 0.00 | Spent: 0.00 | Remaining: 0.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+    "files": {
+      "expenses.txt": "",
+      "budgets.txt": "2026-11,0.0\n"
+    },
+    "verdict": true
+  }
+]
