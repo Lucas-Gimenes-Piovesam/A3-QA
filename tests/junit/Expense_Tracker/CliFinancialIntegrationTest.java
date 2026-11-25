@@ -14,9 +14,9 @@ class CliFinancialIntegrationTest {
     @TempDir Path temp;
 
     private String runApp(String menuInput) throws Exception {
-        String java = Path.of(System.getProperty("java.home"), "bin", "java").toString();
+        String javaExe = Path.of(System.getProperty("java.home"), "bin", "java").toString();
         String classpath = Path.of("target", "classes").toAbsolutePath().toString();
-        Process p = new ProcessBuilder(java, "-cp", classpath, "Expense_Tracker.ExpenseTracker")
+        Process p = new ProcessBuilder(javaExe, "-cp", classpath, "Expense_Tracker.ExpenseTracker")
                 .directory(temp.toFile()).redirectErrorStream(true).start();
         p.getOutputStream().write(menuInput.getBytes(java.nio.charset.StandardCharsets.UTF_8));
         p.getOutputStream().close();
