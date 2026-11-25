@@ -7,6 +7,9 @@ public class Expense {
     private String category;
 
     public Expense(String date, String description, double amount, String category) {
+        if (!Double.isFinite(amount) || amount <= 0) {
+            throw new IllegalArgumentException("Expense amount must be positive and finite");
+        }
         this.date = date;
         this.description = description;
         this.amount = amount;
