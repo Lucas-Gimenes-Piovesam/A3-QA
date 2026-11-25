@@ -1,0 +1,134 @@
+{
+  "projeto": "A3-QA — Expense Tracker",
+  "coleta": "2026-11-25 (UTC), após o merge do PR #3",
+  "repo": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA",
+  "branch_main": {
+    "sha": "aa68618438d814b77418a98805a571aa968803bc",
+    "protected": true
+  },
+  "prs": [
+    {
+      "numero": 1,
+      "created_at": "2026-11-25T00:53:05Z",
+      "merged_at": "2026-11-25T01:18:18Z",
+      "reviewer_aprovador": "EduardoJuvenasso",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1"
+    },
+    {
+      "numero": 2,
+      "created_at": "2026-11-25T01:20:14Z",
+      "merged_at": "2026-11-25T01:22:58Z",
+      "reviewer_aprovador": "EduardoJuvenasso",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/2"
+    },
+    {
+      "numero": 3,
+      "created_at": "2026-11-25T01:30:33Z",
+      "merged_at": "2026-11-25T01:33:01Z",
+      "reviewer_aprovador": "EduardoJuvenasso",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/3"
+    }
+  ],
+  "workflows": [
+    {
+      "id": 45519713000,
+      "result": "failure"
+    },
+    {
+      "id": 45519906091,
+      "result": "failure"
+    },
+    {
+      "id": 45520193389,
+      "result": "failure"
+    },
+    {
+      "id": 45521164157,
+      "result": "failure"
+    },
+    {
+      "id": 45521550391,
+      "result": "failure"
+    },
+    {
+      "id": 45522943713,
+      "result": "success"
+    },
+    {
+      "id": 45524746875,
+      "result": "success"
+    },
+    {
+      "id": 45524995349,
+      "result": "success"
+    },
+    {
+      "id": 45525331673,
+      "result": "success"
+    },
+    {
+      "id": 45526264530,
+      "result": "success"
+    },
+    {
+      "id": 45526565474,
+      "result": "success"
+    }
+  ],
+  "quality_gate": {
+    "run_id": 45522943713,
+    "junit_total": 33,
+    "junit_passed": 33,
+    "p1_lines_covered": 145,
+    "p1_lines_total": 145,
+    "p1_branches_covered": 64,
+    "p1_branches_total": 64,
+    "checkstyle": "success",
+    "note": "Recorte dos nove métodos financeiros P1, não representa o sistema inteiro"
+  },
+  "baseline": {
+    "tag": "v0.1.0-baseline",
+    "commit": "6b55f9d3f38012f1bcf1e05b272740bdb0ce8571",
+    "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/releases/tag/v0.1.0-baseline"
+  },
+  "technical_debts": [
+    {
+      "key": "H01",
+      "title": "Ciclo TDD histórico não demonstrado de modo rigoroso",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/commit/9fed22f954aa3c4cdcf42d7f868817a99218f6a5",
+      "status": "pendente"
+    },
+    {
+      "key": "H02",
+      "title": "Atas de revisão e retrospectiva assinadas ainda não encontradas",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/tree/main/docs/entregavel-01-plano-qualidade/atas",
+      "status": "pendente"
+    },
+    {
+      "key": "H03",
+      "title": "Horas efetivamente trabalhadas não preenchidas",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/evidencias/entregavel-07/registro_horas_reais.csv",
+      "status": "pendente"
+    },
+    {
+      "key": "H04",
+      "title": "Arquivos de testes/evidências do E2 estão em subpastas de docs, não nos caminhos projetados na raiz",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/tree/main/docs/entregavel-02-estrategia-plano-testes",
+      "status": "pendente"
+    },
+    {
+      "key": "H05",
+      "title": "Baseline original reconstruído, equivalência byte a byte não validada",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/linha-base-e-piloto.md",
+      "status": "pendente"
+    },
+    {
+      "key": "H06",
+      "title": "Comparação humana versus IA sem cronometração controlada",
+      "evidence": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/proposta-inicial.md",
+      "status": "pendente"
+    }
+  ],
+  "framework": "CMMI — mini-diagnóstico acadêmico, sem avaliação oficial",
+  "framework_source": "https://prod.cmmiinstitute.com/learning/appraisals/levels"
+}
