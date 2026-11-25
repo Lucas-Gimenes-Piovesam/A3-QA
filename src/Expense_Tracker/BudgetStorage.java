@@ -1,6 +1,11 @@
 package Expense_Tracker;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +29,12 @@ public class BudgetStorage {
                     continue;
                 }
                 try {
-                    budgets.put(parts.get(0), Double.parseDouble(parts.get(1)));
+                    double amount = Double.parseDouble(parts.get(1));
+                    if (!FinancialRules.validBudgetAmount(amount)) {
+                        System.out.println("Skipping budget line with invalid value: " + line);
+                        continue;
+                    }
+                    budgets.put(parts.get(0), amount);
                 } catch (NumberFormatException nfe) {
                     System.out.println("Skipping budget line with invalid amount: " + line);
                 }

@@ -90,7 +90,7 @@ public class ExpenseTracker {
             System.out.println("Invalid amount. Expense not added.");
             return;
         }
-        if (amount <= 0) {
+        if (!FinancialRules.validExpenseAmount(amount)) {
             System.out.println("Amount must be greater than zero. Expense not added.");
             return;
         }
@@ -126,7 +126,7 @@ public class ExpenseTracker {
                 System.out.println("Invalid amount. Expense not updated.");
                 return;
             }
-            if (amount <= 0) {
+            if (!FinancialRules.validExpenseAmount(amount)) {
                 System.out.println("Amount must be greater than zero. Expense not updated.");
                 return;
             }
@@ -254,6 +254,10 @@ public class ExpenseTracker {
         if (!input.isEmpty()) {
             try {
                 double amount = Double.parseDouble(input);
+                if (!FinancialRules.validBudgetAmount(amount)) {
+                    System.out.println("Invalid amount. Budget must be zero or greater and finite.");
+                    return;
+                }
                 budgets.put(month, amount);
                 BudgetStorage.saveBudgets(budgets);
                 System.out.println("Budget for " + month + " set to " + amount);

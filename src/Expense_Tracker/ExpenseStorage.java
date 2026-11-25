@@ -1,6 +1,11 @@
 package Expense_Tracker;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +40,8 @@ public class ExpenseStorage {
                             Double.parseDouble(parts.get(2)), parts.get(3)));
                 } catch (NumberFormatException nfe) {
                     System.out.println("Skipping line with invalid amount: " + line);
+                } catch (IllegalArgumentException invalidAmount) {
+                    System.out.println("Skipping line with invalid expense value: " + line);
                 }
             }
         } catch (FileNotFoundException e) {
