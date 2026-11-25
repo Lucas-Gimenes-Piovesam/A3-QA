@@ -1,0 +1,29 @@
+A3-QA — Entregável 10: registro de verificações técnicas
+Data: 25/11/2026 UTC
+
+1. Código usado na comparação local:
+   ANTES: tag do grupo v0.1.0-baseline, commit 6b55f9d3f38012f1bcf1e05b272740bdb0ce8571
+   DEPOIS: revisão f4abe2daf159a5a8fab36a5ecb856f64ff843716
+   Fonte de proveniência: Git blob SHA-1 dos arquivos Java conferidos contra GitHub.
+   Conferir evidencias/entregavel-10/proveniencia_fontes.json.
+
+2. Execução do mesmo piloto IA-01..IA-10 com javac e java em pastas isoladas:
+   baseline: 6 testes com oráculos atendidos / 10
+   depois:   10 testes com oráculos atendidos / 10
+   corrigidos: IA-05, IA-06, IA-07, IA-08
+   regressões observadas nos outros 6 casos: nenhuma
+
+3. Teste independente do mecanismo de reprodução:
+   Criado repositório Git temporário apenas para validação do script,
+   com tag v0.1.0-baseline e commit posterior.
+   python3 scripts/experimento_10.py --repo ... --baseline-ref v0.1.0-baseline --after-ref HEAD
+   RESULTADO: baseline=6, after=10, resolved=4, regressions=0.
+
+4. O que este log NÃO comprova:
+   - Revisor humano aprovando todos os oráculos
+   - Tempo gasto por humano e IA para escrever, revisar e executar testes
+   - Quantidade confirmada de alucinações da IA
+   - Superioridade de IA sobre processo manual ou redução de 20%
+   - Cobertura de todos os requisitos do aplicativo
+
+O pacote contém formulários em branco para coletar e validar os dados ausentes.

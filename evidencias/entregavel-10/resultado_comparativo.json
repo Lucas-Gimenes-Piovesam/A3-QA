@@ -1,0 +1,437 @@
+{
+  "experiment": "E10 – comparacao antes/depois de oraculos predefinidos com IA",
+  "measured_at_utc": "2026-11-25T01:49:43.467453+00:00",
+  "scope": "10 cenarios do piloto IA, mesmos comandos e mesmos oraculos",
+  "baseline": {
+    "ref": "v0.1.0-baseline@6b55f9d3",
+    "source_files_compiled": 6,
+    "source_file_hashes": {
+      "ExpenseTracker.java": {
+        "sha256": "6796566f5cf5dcd0938c0bd40c39d779b9dd001fe1dff087200a129137ad0047",
+        "git_blob_sha1": "2404296313a1b075c34a37733e70ddca014dc9a3"
+      },
+      "Expense.java": {
+        "sha256": "4c3157338ebf89088b4a23a2a5e41833c2a83341274da6e68016c245a788d1c4",
+        "git_blob_sha1": "e3b189776b035b5c416c82aa35635dc2ee2b3398"
+      },
+      "ExpenseStorage.java": {
+        "sha256": "b439b23403d59ee4fa30f5f890ea428b0d1eaacc78275649b875753e62e91da4",
+        "git_blob_sha1": "46e23f9ad05a190dbbf7bd530eba0b7a6fc04f21"
+      },
+      "BudgetStorage.java": {
+        "sha256": "de6a504d7f578fc71b1d13b4015a4f3c5eafeafea67349ac4c1c8cd6b6c7f534",
+        "git_blob_sha1": "face44914cf8b7022fec1ef28254df116c1f29f8"
+      },
+      "CsvUtil.java": {
+        "sha256": "d31472e58d24ec8be40583c76dd27fef26cee5a8187d03cf6a0ba49804189d5c",
+        "git_blob_sha1": "3d7fb48c14a14ffc83e2a84c145bbc64fb03cd98"
+      },
+      "CsvUtilTest.java": {
+        "sha256": "a30b910280ebac4e17d6d740b9b35ee3a88b68eb67c621b4e2a5342f06292878",
+        "git_blob_sha1": "534077185f51b7c79663d22821c472350d5cf18b"
+      }
+    },
+    "compile_seconds": 1.0387,
+    "tests_passed": 6,
+    "total_tests": 10,
+    "tests": [
+      {
+        "id": "IA-01",
+        "name": "Despesa válida positiva",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.09658,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-02",
+        "name": "Despesa zero rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08273,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-03",
+        "name": "Despesa negativa rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.0832,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-04",
+        "name": "Despesa não numérica rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.12991,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Invalid amount. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-05",
+        "name": "Despesa NaN deve ser rejeitada (regra proposta)",
+        "passed": false,
+        "return_code": 0,
+        "runtime_seconds": 0.07605,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-06",
+        "name": "Despesa Infinity deve ser rejeitada (regra proposta)",
+        "passed": false,
+        "return_code": 0,
+        "runtime_seconds": 0.09025,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-07",
+        "name": "Orçamento NaN deve ser rejeitado (regra proposta)",
+        "passed": false,
+        "return_code": 0,
+        "runtime_seconds": 0.08977,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to NaN",
+          "Budget for 2026-11: NaN | Spent: 0.00 | Remaining: NaN",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-08",
+        "name": "Orçamento negativo deve ser rejeitado (regra proposta)",
+        "passed": false,
+        "return_code": 0,
+        "runtime_seconds": 0.09648,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to -100.0",
+          "Budget for 2026-11: -100.00 | Spent: 0.00 | Remaining: -100.00",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-09",
+        "name": "Aviso quando gastos excedem orçamento",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08625,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to 50.0",
+          "Budget for 2026-11: 50.00 | Spent: 0.00 | Remaining: 50.00",
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Warning: expenses for 2026-11 total 60.00, exceeding the budget of 50.00.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-10",
+        "name": "Soma mensal correta",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.09068,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Enter month (YYYY-MM): Total for 2026-11: 10.00",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      }
+    ],
+    "tests_runtime_seconds": 0.9219
+  },
+  "after": {
+    "ref": "main@f4abe2da",
+    "source_files_compiled": 7,
+    "source_file_hashes": {
+      "ExpenseTracker.java": {
+        "sha256": "a497fb5d1baa3dedfb7596c9e1c72ac9c5cec34564064dff055f9c2066afc8da",
+        "git_blob_sha1": "f732321cc21aa54eee6b56b340565043fd06b26d"
+      },
+      "Expense.java": {
+        "sha256": "3bc8b486f2df172a7704005f264301ee1d871f14111b44d0b0dbd1e8e76403ff",
+        "git_blob_sha1": "d3cdbbd59cba4545157ec10f3f13d0a7874bd719"
+      },
+      "ExpenseStorage.java": {
+        "sha256": "65f30b2c0b8fee34bc38b285d96e76b3b123b39bed8ca886b01ece59bbb3a25e",
+        "git_blob_sha1": "c1527fc259db1f78445438e930d224c0cc3af690"
+      },
+      "BudgetStorage.java": {
+        "sha256": "403040687fc0aa4e38a3a70522da272778882bf4a39db8297312d1edc9c04232",
+        "git_blob_sha1": "d4903e63213c74dcb0026e515e3463e629c9ee3f"
+      },
+      "CsvUtil.java": {
+        "sha256": "d31472e58d24ec8be40583c76dd27fef26cee5a8187d03cf6a0ba49804189d5c",
+        "git_blob_sha1": "3d7fb48c14a14ffc83e2a84c145bbc64fb03cd98"
+      },
+      "CsvUtilTest.java": {
+        "sha256": "a30b910280ebac4e17d6d740b9b35ee3a88b68eb67c621b4e2a5342f06292878",
+        "git_blob_sha1": "534077185f51b7c79663d22821c472350d5cf18b"
+      },
+      "FinancialRules.java": {
+        "sha256": "8ab1bd347ed5c7e314c7c021f9fdf4e30c80d27c12a57a70e1eb6124bd2c82c7",
+        "git_blob_sha1": "56c7ff862ac7c4dcf62d30c47a64eb688402043e"
+      }
+    },
+    "compile_seconds": 1.1264,
+    "tests_passed": 10,
+    "total_tests": 10,
+    "tests": [
+      {
+        "id": "IA-01",
+        "name": "Despesa válida positiva",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08426,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-02",
+        "name": "Despesa zero rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08091,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-03",
+        "name": "Despesa negativa rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.12257,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-04",
+        "name": "Despesa não numérica rejeitada",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.09594,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Invalid amount. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-05",
+        "name": "Despesa NaN deve ser rejeitada (regra proposta)",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.11546,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-06",
+        "name": "Despesa Infinity deve ser rejeitada (regra proposta)",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.09147,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-07",
+        "name": "Orçamento NaN deve ser rejeitado (regra proposta)",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08342,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Invalid amount. Budget must be zero or greater and finite.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-08",
+        "name": "Orçamento negativo deve ser rejeitado (regra proposta)",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.08584,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Invalid amount. Budget must be zero or greater and finite.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-09",
+        "name": "Aviso quando gastos excedem orçamento",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.10207,
+        "relevant_output": [
+          "Enter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-11 set to 50.0",
+          "Budget for 2026-11: 50.00 | Spent: 0.00 | Remaining: 50.00",
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Warning: expenses for 2026-11 total 60.00, exceeding the budget of 50.00.",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      },
+      {
+        "id": "IA-10",
+        "name": "Soma mensal correta",
+        "passed": true,
+        "return_code": 0,
+        "runtime_seconds": 0.0766,
+        "relevant_output": [
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.",
+          "Enter your choice: Enter month (YYYY-MM): Total for 2026-11: 10.00",
+          "Enter your choice: Expenses saved. Exiting..."
+        ],
+        "stderr": ""
+      }
+    ],
+    "tests_runtime_seconds": 0.9385
+  },
+  "comparison": {
+    "before_pass": 6,
+    "after_pass": 10,
+    "resolved_case_ids": [
+      "IA-05",
+      "IA-06",
+      "IA-07",
+      "IA-08"
+    ],
+    "regression_case_ids": [],
+    "cases": [
+      {
+        "id": "IA-01",
+        "name": "Despesa válida positiva",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.09658,
+        "after_runtime_seconds": 0.08426
+      },
+      {
+        "id": "IA-02",
+        "name": "Despesa zero rejeitada",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.08273,
+        "after_runtime_seconds": 0.08091
+      },
+      {
+        "id": "IA-03",
+        "name": "Despesa negativa rejeitada",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.0832,
+        "after_runtime_seconds": 0.12257
+      },
+      {
+        "id": "IA-04",
+        "name": "Despesa não numérica rejeitada",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.12991,
+        "after_runtime_seconds": 0.09594
+      },
+      {
+        "id": "IA-05",
+        "name": "Despesa NaN deve ser rejeitada (regra proposta)",
+        "before": false,
+        "after": true,
+        "effect": "corrigido",
+        "before_runtime_seconds": 0.07605,
+        "after_runtime_seconds": 0.11546
+      },
+      {
+        "id": "IA-06",
+        "name": "Despesa Infinity deve ser rejeitada (regra proposta)",
+        "before": false,
+        "after": true,
+        "effect": "corrigido",
+        "before_runtime_seconds": 0.09025,
+        "after_runtime_seconds": 0.09147
+      },
+      {
+        "id": "IA-07",
+        "name": "Orçamento NaN deve ser rejeitado (regra proposta)",
+        "before": false,
+        "after": true,
+        "effect": "corrigido",
+        "before_runtime_seconds": 0.08977,
+        "after_runtime_seconds": 0.08342
+      },
+      {
+        "id": "IA-08",
+        "name": "Orçamento negativo deve ser rejeitado (regra proposta)",
+        "before": false,
+        "after": true,
+        "effect": "corrigido",
+        "before_runtime_seconds": 0.09648,
+        "after_runtime_seconds": 0.08584
+      },
+      {
+        "id": "IA-09",
+        "name": "Aviso quando gastos excedem orçamento",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.08625,
+        "after_runtime_seconds": 0.10207
+      },
+      {
+        "id": "IA-10",
+        "name": "Soma mensal correta",
+        "before": true,
+        "after": true,
+        "effect": "mantido_aprovado",
+        "before_runtime_seconds": 0.09068,
+        "after_runtime_seconds": 0.0766
+      }
+    ]
+  },
+  "validity": "Mudanca de software e de testes nao prova superioridade de IA sobre teste humano. Regras propostas devem ser validadas por um humano. Tempos apenas de execucao de 10 casos, nunca de criacao/revisao. Versao local usada, quando --baseline-root/--after-root, deve ser conferida contra os SHAs Git."
+}

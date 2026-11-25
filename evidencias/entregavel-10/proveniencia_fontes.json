@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-11-25T01:49:43.467453+00:00",
+  "github_owner_repo": "Lucas-Gimenes-Piovesam/A3-QA",
+  "baseline_git_ref": "v0.1.0-baseline",
+  "baseline_commit": "6b55f9d3f38012f1bcf1e05b272740bdb0ce8571",
+  "after_commit": "f4abe2daf159a5a8fab36a5ecb856f64ff843716",
+  "baseline_source_git_blob_sha1": {
+    "ExpenseTracker.java": "2404296313a1b075c34a37733e70ddca014dc9a3",
+    "Expense.java": "e3b189776b035b5c416c82aa35635dc2ee2b3398",
+    "ExpenseStorage.java": "46e23f9ad05a190dbbf7bd530eba0b7a6fc04f21",
+    "BudgetStorage.java": "face44914cf8b7022fec1ef28254df116c1f29f8",
+    "CsvUtil.java": "3d7fb48c14a14ffc83e2a84c145bbc64fb03cd98",
+    "CsvUtilTest.java": "534077185f51b7c79663d22821c472350d5cf18b"
+  },
+  "after_source_git_blob_sha1": {
+    "ExpenseTracker.java": "f732321cc21aa54eee6b56b340565043fd06b26d",
+    "Expense.java": "d3cdbbd59cba4545157ec10f3f13d0a7874bd719",
+    "ExpenseStorage.java": "c1527fc259db1f78445438e930d224c0cc3af690",
+    "BudgetStorage.java": "d4903e63213c74dcb0026e515e3463e629c9ee3f",
+    "CsvUtil.java": "3d7fb48c14a14ffc83e2a84c145bbc64fb03cd98",
+    "CsvUtilTest.java": "534077185f51b7c79663d22821c472350d5cf18b",
+    "FinancialRules.java": "56c7ff862ac7c4dcf62d30c47a64eb688402043e"
+  },
+  "verification": "Os hashes foram calculados localmente a partir do codigo usado no experimento e conferidos com os blob SHA retornados pelo GitHub nas revisoes informadas.",
+  "note": "Verifica identidade dos snapshots locais com o repositorio do grupo; não prova identidade da baseline com o upstream externo."
+}
