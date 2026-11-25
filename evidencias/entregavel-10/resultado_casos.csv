@@ -1,0 +1,11 @@
+id,name,before,after,effect,before_runtime_seconds,after_runtime_seconds
+IA-01,Despesa válida positiva,True,True,mantido_aprovado,0.09658,0.08426
+IA-02,Despesa zero rejeitada,True,True,mantido_aprovado,0.08273,0.08091
+IA-03,Despesa negativa rejeitada,True,True,mantido_aprovado,0.0832,0.12257
+IA-04,Despesa não numérica rejeitada,True,True,mantido_aprovado,0.12991,0.09594
+IA-05,Despesa NaN deve ser rejeitada (regra proposta),False,True,corrigido,0.07605,0.11546
+IA-06,Despesa Infinity deve ser rejeitada (regra proposta),False,True,corrigido,0.09025,0.09147
+IA-07,Orçamento NaN deve ser rejeitado (regra proposta),False,True,corrigido,0.08977,0.08342
+IA-08,Orçamento negativo deve ser rejeitado (regra proposta),False,True,corrigido,0.09648,0.08584
+IA-09,Aviso quando gastos excedem orçamento,True,True,mantido_aprovado,0.08625,0.10207
+IA-10,Soma mensal correta,True,True,mantido_aprovado,0.09068,0.0766

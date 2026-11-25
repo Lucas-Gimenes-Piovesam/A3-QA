@@ -1,0 +1,19 @@
+# Ata de validação da inovação — A3 E10 (MODELO NÃO PREENCHIDO)
+
+**Data e hora da reunião real:** [preencher]  
+**Participantes:** [preencher com pessoas presentes]  
+**Revisor independente dos oráculos:** [preencher]  
+**Commit/tag da baseline e código final:** [preencher]  
+
+## Pauta de decisão
+
+- A exigência de que despesas sejam finitas e positivas é aceita? [ ] sim [ ] não; justificativa e referência: ...
+- O orçamento mensal zero é permitido e valores negativos são proibidos? [ ] sim [ ] não; justificativa: ...
+- Os dez oráculos IA-01…IA-10 foram revisados independentemente? Quantos classificados como corretos/errados/alucinados? ...
+- Houve comparação manual × IA com cronômetro real e condições equivalentes? [ ] sim [ ] não; links para dados: ...
+- A hipótese de ≥20% foi **apoiada, rejeitada ou permaneceu inconclusiva**? Justificar com fórmula e evidências: ...
+- Decisão sobre novas ações, responsáveis e prazo: ...
+
+**Registro de concordância e link de PR/commit:** [preencher após reunião]
+
+> Modelo de ata, **não** evidência de reunião realizada. Não preencher assinaturas fictícias.
