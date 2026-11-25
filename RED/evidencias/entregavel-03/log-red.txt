@@ -1,0 +1,15 @@
+$ javac -encoding UTF-8 ...
+javac exit=0
+
+
+FAIL REJECT 0.0
+FAIL REJECT -0.01
+FAIL REJECT NaN
+FAIL REJECT Infinity
+FAIL REJECT -Infinity
+PASS ACCEPT 0.01
+PASS ACCEPT 99.9
+SUMMARY PASS=2 FAIL=5
+
+
+java exit=1
