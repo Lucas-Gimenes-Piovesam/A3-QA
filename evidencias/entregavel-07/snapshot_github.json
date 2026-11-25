@@ -1,0 +1,88 @@
+{
+  "fonte": "GitHub publico - repository / pull requests / actions",
+  "coleta": "25/11/2026 UTC, apos os merges PR1 e PR2; snapshot estatico",
+  "repositorio": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA",
+  "head_main": "eb7aa5880513db359f335f86a6141b9f25be68e9",
+  "main_protegida": true,
+  "commits_main_contados": 31,
+  "pull_requests": [
+    {
+      "numero": 1,
+      "titulo": "docs: gestao de configuracao e estrategia trunk-based",
+      "created_at": "2026-11-25T00:53:05Z",
+      "merged_at": "2026-11-25T01:18:18Z",
+      "duracao_entre_abertura_e_merge_segundos": 1513,
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1"
+    },
+    {
+      "numero": 2,
+      "titulo": "docs(metricas): adicionar painel ISO 25010",
+      "created_at": "2026-11-25T01:20:14Z",
+      "merged_at": "2026-11-25T01:22:58Z",
+      "duracao_entre_abertura_e_merge_segundos": 164,
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/2"
+    }
+  ],
+  "actions_runs": [
+    {
+      "id": 45519713000,
+      "conclusion": "failure",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519713000"
+    },
+    {
+      "id": 45519906091,
+      "conclusion": "failure",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45519906091"
+    },
+    {
+      "id": 45520193389,
+      "conclusion": "failure",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45520193389"
+    },
+    {
+      "id": 45521164157,
+      "conclusion": "failure",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521164157"
+    },
+    {
+      "id": 45521550391,
+      "conclusion": "failure",
+      "event": "pull_request",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45521550391"
+    },
+    {
+      "id": 45522943713,
+      "conclusion": "success",
+      "event": "pull_request",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45522943713"
+    },
+    {
+      "id": 45524746875,
+      "conclusion": "success",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45524746875"
+    },
+    {
+      "id": 45524995349,
+      "conclusion": "success",
+      "event": "pull_request",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45524995349"
+    },
+    {
+      "id": 45525331673,
+      "conclusion": "success",
+      "event": "push",
+      "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45525331673"
+    }
+  ],
+  "ci_count": 9,
+  "ci_success": 4,
+  "ci_failure": 5,
+  "ultima_run_main": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45525331673",
+  "registro_horas_reais": "ausente",
+  "aviso": "Datas e contagens nao equivalem a horas trabalhadas. Story Points baseados em pesos propostos."
+}

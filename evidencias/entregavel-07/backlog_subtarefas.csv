@@ -1,0 +1,39 @@
+id_subtarefa,entrega,atividade,pontos_estimados,status,url_evidencia,observacoes
+E01-01,1,Plano SQA e ISO 25010,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-01-plano-qualidade/01-plano-qualidade-sqa.md,Documentacao publicada; nao implica aceite formal
+E01-02,1,Auditoria de processo,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-01-plano-qualidade/auditorias/01-auditoria-inicial.md,Auditoria inicial documentada
+E01-03,1,Ata real de revisao por pares,2,pendente,,"Existe modelo, mas falta ata preenchida e assinada ou confirmada pelo grupo"
+E02-04,2,Plano de testes IEEE 829,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-02-estrategia-plano-testes/01-plano-testes-ieee829.md,Plano registrado
+E02-05,2,Piramide e roteiro de testes,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-02-estrategia-plano-testes/02-piramide-testes-e-roteiro.md,Roteiro documentado
+E02-06,2,Casos de caixa preta e limites,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-02-estrategia-plano-testes/03-matriz-caixa-preta.md,Matriz existe; resultado pontual fica em evidencias
+E02-07,2,Criterio de caixa branca,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-02-estrategia-plano-testes/04-caixa-branca-e-cobertura.md,Analise documentada
+E02-08,2,Execucao reproduzivel na raiz e evidencias consistentes,2,pendente,,Scripts e evidencias do Entregavel 2 foram publicados dentro de docs; revisar caminhos e rerodar
+E03-09,3,Suite JUnit automatizada executavel,5,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45525331673,"Workflow validou compilacao, testes e CI"
+E03-10,3,BDD em Gherkin legivel,3,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/tests/bdd/valores-financeiros.feature,Cenarios presentes; execucao direta do Gherkin nao implementada
+E03-11,3,Experimento local red-green-refactor com logs,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-03-testes-ageis-automatizados/01-tdd-red-green-refactor.md,"Verificacoes locais documentadas, nao equivalem a commits de TDD"
+E03-12,3,Tres commits demonstrando codigo red-green-refactor,3,pendente,,Commit GREEN da sequencia principal nao tem alteracoes; corrigir demonstracao em branch nova
+E04-13,4,Pipeline CI com Maven e testes,3,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45525331673,CI real validada
+E04-14,4,Relatorios JaCoCo e Checkstyle e limites,3,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45525331673,Quality gate aprovado na run atual
+E04-15,4,Branch main protegida com check obrigatorio,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1,Fluxo com status required e PR real; conferir regra pela interface
+E04-16,4,Prova especifica de merge barrado por quality gate,1,pendente,,PR anterior falhou antes da protecao; falta evidenciar bloqueio por check reprovado sob regra ativa
+E05-17,5,Estrategia trunk-based e PR revisado/mesclado,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/1,PR #1 integrado
+E05-18,5,Tag e release baseline,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/releases/tag/v0.1.0-baseline,Tag vinculada ao commit inicial
+E05-19,5,README claro e atualizado,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/README.md,Arquivo presente em main
+E05-20,5,Commits rastreaveis e Changelog,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/CHANGELOG.md,Historico versionado
+E06-21,6,Painel de produto ISO 25010,2,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-06-metricas-indicadores/01-painel-metricas.md,Snapshot datado
+E06-22,6,Indicadores de processo e DORA com limites,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-06-metricas-indicadores/02-dicionario-metricas-e-metas.md,Define NA quando nao existe deploy
+E06-23,6,Metas e decisoes por indicador,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/main/docs/entregavel-06-metricas-indicadores/03-analise-e-decisoes.md,Decisoes documentadas
+E06-24,6,PR de indicadores revisado e mesclado,1,verificado,https://github.com/Lucas-Gimenes-Piovesam/A3-QA/pull/2,PR #2 integrado
+E07-25,7,Definir estimativa relativa e breakdown,1,pendente,,Este pacote local deve ser publicado para ser contado
+E07-26,7,Comparar estimado com escopo evidenciado,1,pendente,,Este pacote local deve ser publicado para ser contado
+E07-27,7,Coletar e comparar horas realmente trabalhadas,1,pendente,,Preencher timesheet com dados confirmados pelo grupo
+E08-28,8,Mini-diagnostico CMMI ou MPS.BR,2,pendente,,Ainda nao publicado
+E08-29,8,Retrospectiva documentada,1,pendente,,Ainda nao publicada
+E08-30,8,Roadmap com OKRs de qualidade,2,pendente,,Ainda nao publicado
+E09-31,9,Tres solicitacoes de mudanca classificadas,1,pendente,,Ainda nao publicado
+E09-32,9,Analise de impacto por mudanca,2,pendente,,Ainda nao publicado
+E09-33,9,Decisao refatorar modernizar ou substituir,2,pendente,,Ainda nao publicada
+E10-34,10,Hipotese mensuravel e baseline controlada,3,pendente,,Existe proposta e piloto; baseline controlada oficial pendente
+E10-35,10,Conjunto manual independente e rastreavel,3,pendente,,Ainda nao demonstrado experimento comparativo
+E10-36,10,Conjunto IA validado em mesmo escopo,3,pendente,,Piloto IA nao esta pareado com testes manuais
+E10-37,10,Comparacao de tempo cobertura e defeitos,2,pendente,,Dados pareados ainda nao medidos
+E10-38,10,Conclusao e validade do experimento,2,pendente,,Ainda nao publicada
