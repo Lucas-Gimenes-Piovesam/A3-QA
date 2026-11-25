@@ -1,0 +1,24 @@
+Entregável 4 — Validação local (25/11/2026)
+
+Base utilizada: cópia de trabalho do Expense Tracker, publicada anteriormente no A3-QA.
+JDK: OpenJDK 21.
+
+1) javac (seis arquivos Java): compilação concluída sem erros.
+2) CsvUtilTest.main (verificação própria do sistema original): saída 'All CSV round-trip checks passed.'.
+3) Compilação sintática de InfrastructureSmokeTest.java com stubs locais de assinaturas JUnit: sem erros.
+   ATENÇÃO: esta checagem NÃO equivale a executar o JUnit e não testa o resolvedor de dependências do Maven.
+4) scripts/check_coverage.py validado com XMLs JaCoCo SINTÉTICOS (fixtures):
+   - fixture 100%: exit 0 (aprovado)
+   - fixture 1%: exit 1 (reprovado)
+   - relatório ausente: exit 1 (reprovado)
+   ATENÇÃO: os percentuais das fixtures NÃO são a cobertura real do Expense Tracker.
+
+Pendente de execução: mvn clean verify, GitHub Actions, upload de artefatos, ativação de proteção de main e prova de PR bloqueado. Nenhum status de CI aprovado foi alegado.
+
+--- Verificacao adicional apos Entregavel 3 (25/11/2026) ---
+Copia de trabalho da etapa REFACTOR: javac de todas as classes Java do src: codigo de saida 0.
+CsvUtilTest (self-check do legado): codigo de saida 0; mensagem All CSV round-trip checks passed.
+check_coverage.py: XML sintetico de 100%: saida 0; XML sintetico abaixo da meta: saida 1; XML ausente: saida 1.
+Nao foi executado Maven, JaCoCo, JUnit real nem GitHub Actions nesta verificacao.
+`pom.xml` e `config/checkstyle/checkstyle.xml` ja estavam presentes no GitHub apos o Entregavel 3, e sao identicos ao pacote base do Entregavel 4.
+Possivel falha inicial: codigo original usa imports wildcard em classes de persistencia, que a regra AvoidStarImport do Checkstyle proibe. Corrigir em commit posterior, preservando o historico.
