@@ -1,0 +1,94 @@
+{
+  "metodo": "story points / escopo evidenciado, nao horas trabalhadas",
+  "estimativa_registrada": "2026-11-25 UTC; entregas 1-6: retrospectiva; entregas 7-10: prospectiva",
+  "quantidade_entregas": 10,
+  "estimado_total_sp": 70,
+  "evidenciado_total_sp": 36,
+  "pendente_total_sp": 34,
+  "fracao_escopo_evidenciado": 0.5143,
+  "horas_reais": null,
+  "motivo_horas_ausentes": "Nenhum apontamento individual de tempo fornecido pelo grupo",
+  "nota": "Status de cada subtarefa e uma avaliacao preliminar com links; exige validacao do grupo. Pontos evidenciados nao sao SP de esforco consumido.",
+  "entregas": [
+    {
+      "entrega": "1",
+      "estimado_sp": 5,
+      "evidenciado_sp": 3,
+      "tarefas": 3,
+      "tarefas_evidenciadas": 2,
+      "fracao_escopo_evidenciado": 0.6
+    },
+    {
+      "entrega": "2",
+      "estimado_sp": 8,
+      "evidenciado_sp": 6,
+      "tarefas": 5,
+      "tarefas_evidenciadas": 4,
+      "fracao_escopo_evidenciado": 0.75
+    },
+    {
+      "entrega": "3",
+      "estimado_sp": 13,
+      "evidenciado_sp": 10,
+      "tarefas": 4,
+      "tarefas_evidenciadas": 3,
+      "fracao_escopo_evidenciado": 0.7692
+    },
+    {
+      "entrega": "4",
+      "estimado_sp": 8,
+      "evidenciado_sp": 7,
+      "tarefas": 4,
+      "tarefas_evidenciadas": 3,
+      "fracao_escopo_evidenciado": 0.875
+    },
+    {
+      "entrega": "5",
+      "estimado_sp": 5,
+      "evidenciado_sp": 5,
+      "tarefas": 4,
+      "tarefas_evidenciadas": 4,
+      "fracao_escopo_evidenciado": 1.0
+    },
+    {
+      "entrega": "6",
+      "estimado_sp": 5,
+      "evidenciado_sp": 5,
+      "tarefas": 4,
+      "tarefas_evidenciadas": 4,
+      "fracao_escopo_evidenciado": 1.0
+    },
+    {
+      "entrega": "7",
+      "estimado_sp": 3,
+      "evidenciado_sp": 0,
+      "tarefas": 3,
+      "tarefas_evidenciadas": 0,
+      "fracao_escopo_evidenciado": 0.0
+    },
+    {
+      "entrega": "8",
+      "estimado_sp": 5,
+      "evidenciado_sp": 0,
+      "tarefas": 3,
+      "tarefas_evidenciadas": 0,
+      "fracao_escopo_evidenciado": 0.0
+    },
+    {
+      "entrega": "9",
+      "estimado_sp": 5,
+      "evidenciado_sp": 0,
+      "tarefas": 3,
+      "tarefas_evidenciadas": 0,
+      "fracao_escopo_evidenciado": 0.0
+    },
+    {
+      "entrega": "10",
+      "estimado_sp": 13,
+      "evidenciado_sp": 0,
+      "tarefas": 5,
+      "tarefas_evidenciadas": 0,
+      "fracao_escopo_evidenciado": 0.0
+    }
+  ]
+}
