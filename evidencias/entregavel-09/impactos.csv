@@ -1,0 +1,9 @@
+﻿cr_id,dimensao,arquivos_afetados,testes_existentes_ou_propostos,criterio_de_aceite,estado
+CR-09-01,Regra financeira,Expense.java;FinancialRules.java,ExpenseAmountTest;FinancialRulesTest,Rejeitar nao finitos; preservar valores validos,implementada_pre_E9
+CR-09-01,Interface e persistencia,ExpenseTracker.java;ExpenseStorage.java;BudgetStorage.java,CliFinancialIntegrationTest,Nao persistir NaN/Infinity; informar erro,implementada_pre_E9
+CR-09-02,Escrita de despesas,ExpenseStorage.java,ExpenseStorageAtomicWriteTest (sugerido),Falha de gravacao nao apaga estado previo,proposta
+CR-09-02,Escrita de orcamentos,BudgetStorage.java,BudgetStorageAtomicWriteTest (sugerido),Mesmo contrato de persistencia segura,proposta
+CR-09-03,Carregamento de data,ExpenseStorage.java;Expense.java,Teste de fixtures invalidas (sugerido),Nao aceitar data inexistente; preservar evidencia,proposta
+CR-09-03,Resumo mensal,ExpenseTracker.java,Regressao de resumo mensal (sugerido),Sem somas com data invalida,proposta
+CR-09-04,Camada de aplicacao,ExpenseTracker.java;FinancialRules.java,Testes de servico puros (sugerido),Separar efeitos de console e regras,proposta
+CR-09-04,Contrato de dados,ExpenseStorage.java;BudgetStorage.java,CsvRoundTripJUnitTest;CliFinancialIntegrationTest,Preservar formato/contrato anterior,proposta

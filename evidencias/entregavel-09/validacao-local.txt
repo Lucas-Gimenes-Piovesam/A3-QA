@@ -1,0 +1,10 @@
+Entregável 9 — checagem estática local — 25/11/2026 UTC
+Comando: python3 scripts/validar_entregavel_09.py
+Resultado:
+CRs: 4; impactos: 8; pesos: 1.00
+Pontuação: refatorar=4.60, modernizar=3.65, substituir=1.85
+PASSOU: pacote documental e matriz coerentes (não equivale a execução de mudanças).
+
+Limites: a verificação valida estrutura, IDs, CSV, somatório de pesos e existência dos arquivos.
+NÃO realiza alterações no código Java, testes JUnit, simulações de falhas de arquivo nem reunião do grupo.
+As informações de fonte são uma inspeção da branch main no commit 5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd.
