@@ -1,0 +1,16 @@
+Comando: python3 scripts/validar_diagnostico_08.py --root .
+{
+  "status": "OK",
+  "dimensoes": 9,
+  "pontos_internos": 11,
+  "maximo_interno": 18,
+  "objetivos": 3,
+  "krs": 9,
+  "acoes": 9,
+  "prs_integrados": 3,
+  "runs_ci": 11,
+  "runs_verdes": 6,
+  "observacao": "Verificacao do snapshot local, sem nova coleta"
+}
+
+Aviso: verifica apenas consistência do snapshot. Não recolhe GitHub e não comprova execução das ações.

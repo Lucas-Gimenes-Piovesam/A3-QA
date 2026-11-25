@@ -1,0 +1,10 @@
+﻿id,prioridade,acao,prazo_proposto,responsavel_por_papel,status_inicial,criterio_de_conclusao,objetivo_relacionado
+A01,P0,Realizar e aprovar retrospectiva do grupo,25/11 a 28/11,Facilitador + participantes,Não iniciada,"Ata com participantes, data, 3 ações votadas",O2
+A02,P0,Reproduzir TDD verdadeiro em branch isolada,27/11 a 30/11,Responsável por testes,Não iniciada,"Commit RED com falha, GREEN com aprovação, REFACTOR verde",O1
+A03,P0,Corrigir links/caminhos das evidências de E2 sem apagar histórico,26/11 a 29/11,Responsável documental,Não iniciada,Arquivos nos caminhos citados e docs linkadas,O1
+A04,P1,"Clonar upstream, fixar SHA, conferir origem e reexecutar baseline",27/11 a 30/11,Responsável técnico,Não iniciada,"Log de diff, SHA, execução reprodutível",O1
+A05,P1,Preencher esforço real de novas tarefas e explicar lacunas históricas,25/11 a 03/12,Grupo,Não iniciada,Registro de horas com fontes e critérios,O2
+A06,P1,Atualizar painel E6 e janela móvel das próximas 10 execuções,26/11 a 03/12,Responsável por métricas,Não iniciada,Novo snapshot + métricas atualizadas,O3
+A07,P1,Amarrar casos de teste P1 à matriz de requisitos e defeitos,27/11 a 01/12,Responsável por testes,Não iniciada,Tabela de rastreabilidade completa,O1
+A08,P2,Planejar experimento pareado manual × IA com tempos registrados,28/11 a 03/12,Grupo,Não iniciada,"Protocolo, casos pareados, resultados não enviesados",O2
+A09,P2,Arquivar evidências de PR e revisão de quality gate,25/11 a 29/11,Mantenedor do GitHub,Não iniciada,"Links dos 3 PRs, check green, revisores",O3
