@@ -1,0 +1,31 @@
+{
+  "projeto": "A3-QA / Expense Tracker",
+  "data_inspecao": "2026-11-25 (UTC)",
+  "url_repositorio": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA",
+  "head_main_inspecionado": "3d37fd58b69cf0f8e719ead78ba7d15680fe3684",
+  "branches_observadas": [
+    {
+      "nome": "main",
+      "sha": "3d37fd58b69cf0f8e719ead78ba7d15680fe3684",
+      "protected": false
+    }
+  ],
+  "releases_observadas": [],
+  "tags": "nenhuma referencia de tag observada na API de refs/tags; confirmar pela interface de Tags antes da entrega final",
+  "ultimo_run_inspecionado": {
+    "id": 45520193389,
+    "url": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45520193389",
+    "status": "completed",
+    "conclusion": "failure",
+    "maven_verify": "success",
+    "testes_junit": {
+      "executados": 28,
+      "falhas": 0,
+      "erros": 0,
+      "ignorados": 0
+    },
+    "quality_gate_cobertura": "failure",
+    "protecao_merge": "nao demonstrada"
+  },
+  "observacao": "Inspecao pontual, nao representa monitoramento. Numeros verificados em logs do run; percentual P1 detalhado deve ser extraido do report quality-gate.json."
+}
