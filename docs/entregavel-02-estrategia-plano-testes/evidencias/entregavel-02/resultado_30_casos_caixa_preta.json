@@ -1,0 +1,1035 @@
+{
+  "gerado_em_utc": "2026-11-24T23:54:48.580994+00:00",
+  "fonte_de_codigo": "/mnt/data/A3-Expense-Tracker-inicial/src/Expense_Tracker",
+  "sha256_fontes": {
+    "BudgetStorage.java": "de6a504d7f578fc71b1d13b4015a4f3c5eafeafea67349ac4c1c8cd6b6c7f534",
+    "CsvUtil.java": "d31472e58d24ec8be40583c76dd27fef26cee5a8187d03cf6a0ba49804189d5c",
+    "CsvUtilTest.java": "a30b910280ebac4e17d6d740b9b35ee3a88b68eb67c621b4e2a5342f06292878",
+    "Expense.java": "4c3157338ebf89088b4a23a2a5e41833c2a83341274da6e68016c245a788d1c4",
+    "ExpenseStorage.java": "b439b23403d59ee4fa30f5f890ea428b0d1eaacc78275649b875753e62e91da4",
+    "ExpenseTracker.java": "6796566f5cf5dcd0938c0bd40c39d779b9dd001fe1dff087200a129137ad0047"
+  },
+  "observacao": "Execução sobre cópia reconstruída do código; reproduzir no clone oficial identificado por SHA para evidência final",
+  "ambiente": {
+    "java": "openjdk version \"21.0.12.1\" 2026-08-18",
+    "python": "3.13.5",
+    "plataforma": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "compilacao_s": 0.8765,
+  "total": 30,
+  "passaram": 23,
+  "falharam": 7,
+  "casos": [
+    {
+      "id": "CP-01",
+      "group": "VAL",
+      "technique": "EP / BVA",
+      "name": "Despesa R$ 0,01 válida",
+      "stdin": "1\n2026-07-21\nAlmoco\n0.01\nAlimentacao\n0\n",
+      "contains": [
+        "Expense added."
+      ],
+      "excludes": [
+        "Amount must be greater than zero"
+      ],
+      "file_contains": {
+        "expenses.txt": "0.01"
+      },
+      "file_absent": [],
+      "rationale": "valor positivo mínimo monetário escolhido",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Amount must be greater than zero'",
+          "ok": true
+        },
+        {
+          "item": "expenses.txt contém '0.01'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 91.6
+    },
+    {
+      "id": "CP-02",
+      "group": "VAL",
+      "technique": "BVA",
+      "name": "Despesa zero rejeitada",
+      "stdin": "1\n2026-07-21\nAlmoco\n0\nAlimentacao\n0\n",
+      "contains": [
+        "Amount must be greater than zero. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {
+        "expenses.txt": ""
+      },
+      "file_absent": [],
+      "rationale": "limite inferior inválido",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Amount must be greater than zero. Expense not added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "expenses.txt existe",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Please enter a number from the menu.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 77.7
+    },
+    {
+      "id": "CP-03",
+      "group": "VAL",
+      "technique": "BVA",
+      "name": "Despesa negativa -0,01 rejeitada",
+      "stdin": "1\n2026-07-21\nAlmoco\n-0.01\nAlimentacao\n0\n",
+      "contains": [
+        "Amount must be greater than zero. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "imediatamente abaixo do zero",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Amount must be greater than zero. Expense not added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Please enter a number from the menu.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 80.5
+    },
+    {
+      "id": "CP-04",
+      "group": "VAL",
+      "technique": "EP",
+      "name": "Despesa positiva usual aceita",
+      "stdin": "1\n2026-07-21\nAlmoco\n15.50\nAlimentacao\n0\n",
+      "contains": [
+        "Expense added."
+      ],
+      "excludes": [],
+      "file_contains": {
+        "expenses.txt": "15.5"
+      },
+      "file_absent": [],
+      "rationale": "classe válida ordinária",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "expenses.txt contém '15.5'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 96.0
+    },
+    {
+      "id": "CP-05",
+      "group": "VAL",
+      "technique": "EP",
+      "name": "Texto alfabético rejeitado",
+      "stdin": "1\n2026-07-21\nAlmoco\nabc\nAlimentacao\n0\n",
+      "contains": [
+        "Invalid amount. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "classe de formato inválido",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount. Expense not added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Invalid amount. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Please enter a number from the menu.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 74.4
+    },
+    {
+      "id": "CP-06",
+      "group": "VAL",
+      "technique": "EP",
+      "name": "NaN deve ser rejeitado",
+      "stdin": "1\n2026-07-21\nAlmoco\nNaN\nAlimentacao\n0\n",
+      "contains": [
+        "Invalid amount. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "pré-requisito proposto: somente reais finitos",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount. Expense not added.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 94.5
+    },
+    {
+      "id": "CP-07",
+      "group": "VAL",
+      "technique": "EP",
+      "name": "Infinity deve ser rejeitado",
+      "stdin": "1\n2026-07-21\nAlmoco\nInfinity\nAlimentacao\n0\n",
+      "contains": [
+        "Invalid amount. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "pré-requisito proposto: somente reais finitos",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount. Expense not added.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 80.1
+    },
+    {
+      "id": "CP-08",
+      "group": "VAL",
+      "technique": "EP",
+      "name": "-Infinity deve ser rejeitado",
+      "stdin": "1\n2026-07-21\nAlmoco\n-Infinity\nAlimentacao\n0\n",
+      "contains": [],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "classe especial negativa; mensagem pode ser de valor fora do intervalo",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Amount must be greater than zero. Expense not added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Please enter a number from the menu.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 72.0
+    },
+    {
+      "id": "CP-09",
+      "group": "VAL",
+      "technique": "EP / BVA",
+      "name": "Overflow numérico rejeitado",
+      "stdin": "1\n2026-07-21\nAlmoco\n1e309\nAlimentacao\n0\n",
+      "contains": [
+        "Invalid amount. Expense not added."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "overflow para infinito deve ser inválido",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount. Expense not added.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 116.2
+    },
+    {
+      "id": "CP-10",
+      "group": "DATE",
+      "technique": "EP",
+      "name": "Data bissexta válida 2024-02-29",
+      "stdin": "1\n2024-02-29\nAlmoco\n1.00\nAlimentacao\n0\n",
+      "contains": [
+        "Expense added."
+      ],
+      "excludes": [],
+      "file_contains": {
+        "expenses.txt": "2024-02-29"
+      },
+      "file_absent": [],
+      "rationale": "classe data real válida",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "expenses.txt contém '2024-02-29'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 75.3
+    },
+    {
+      "id": "CP-11",
+      "group": "DATE",
+      "technique": "EP / BVA",
+      "name": "Data impossível 2025-02-29",
+      "stdin": "1\n2025-02-29\n\n0\n",
+      "contains": [
+        "Invalid date format. Please use YYYY-MM-DD."
+      ],
+      "excludes": [
+        "Expense added."
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "fevereiro não bissexto",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid date format. Please use YYYY-MM-DD.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Invalid date format. Please use YYYY-MM-DD.\nEnter date (YYYY-MM-DD): \nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 84.1
+    },
+    {
+      "id": "CP-12",
+      "group": "DATE",
+      "technique": "EP",
+      "name": "Mês inválido 2026-13",
+      "stdin": "6\n2026-13\n\n0\n",
+      "contains": [
+        "Invalid month format. Please use YYYY-MM."
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "partição de meses fora do intervalo",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid month format. Please use YYYY-MM.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Invalid month format. Please use YYYY-MM.\nEnter month (YYYY-MM): \nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 73.3
+    },
+    {
+      "id": "CP-13",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Orçamento zero permitido",
+      "stdin": "8\n2026-07\n0\n0\n",
+      "contains": [
+        "Budget for 2026-07 set to 0.0"
+      ],
+      "excludes": [],
+      "file_contains": {
+        "budgets.txt": "2026-07,0.0"
+      },
+      "file_absent": [],
+      "rationale": "requisito proposto: orçamento não negativo, zero permite teto zero",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Budget for 2026-07 set to 0.0'",
+          "ok": true
+        },
+        {
+          "item": "budgets.txt contém '2026-07,0.0'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to 0.0\nBudget for 2026-07: 0.00 | Spent: 0.00 | Remaining: 0.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 84.4
+    },
+    {
+      "id": "CP-14",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Orçamento mínimo positivo",
+      "stdin": "8\n2026-07\n0.01\n0\n",
+      "contains": [
+        "Budget for 2026-07 set to 0.01"
+      ],
+      "excludes": [],
+      "file_contains": {
+        "budgets.txt": "2026-07,0.01"
+      },
+      "file_absent": [],
+      "rationale": "valor imediatamente acima de zero",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Budget for 2026-07 set to 0.01'",
+          "ok": true
+        },
+        {
+          "item": "budgets.txt contém '2026-07,0.01'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to 0.01\nBudget for 2026-07: 0.01 | Spent: 0.00 | Remaining: 0.01\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 124.4
+    },
+    {
+      "id": "CP-15",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Orçamento negativo rejeitado",
+      "stdin": "8\n2026-07\n-0.01\n0\n",
+      "contains": [
+        "Invalid amount."
+      ],
+      "excludes": [
+        "Budget for 2026-07 set to"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "requisito proposto: orçamento não negativo",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Budget for 2026-07 set to'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to -0.01\nBudget for 2026-07: -0.01 | Spent: 0.00 | Remaining: -0.01\nYou are over budget!\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 83.2
+    },
+    {
+      "id": "CP-16",
+      "group": "BUDGET",
+      "technique": "EP",
+      "name": "Orçamento NaN rejeitado",
+      "stdin": "8\n2026-07\nNaN\n0\n",
+      "contains": [
+        "Invalid amount."
+      ],
+      "excludes": [
+        "Budget for 2026-07 set to"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "valor não numérico finito",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Budget for 2026-07 set to'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to NaN\nBudget for 2026-07: NaN | Spent: 0.00 | Remaining: NaN\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 96.7
+    },
+    {
+      "id": "CP-17",
+      "group": "BUDGET",
+      "technique": "EP",
+      "name": "Orçamento Infinity rejeitado",
+      "stdin": "8\n2026-07\nInfinity\n0\n",
+      "contains": [
+        "Invalid amount."
+      ],
+      "excludes": [
+        "Budget for 2026-07 set to"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "valor não numérico finito",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount.'",
+          "ok": false
+        },
+        {
+          "item": "Não contém 'Budget for 2026-07 set to'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to Infinity\nBudget for 2026-07: Infinity | Spent: 0.00 | Remaining: Infinity\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 79.6
+    },
+    {
+      "id": "CP-18",
+      "group": "BUDGET",
+      "technique": "EP",
+      "name": "Orçamento com texto rejeitado",
+      "stdin": "8\n2026-07\nabc\n0\n",
+      "contains": [
+        "Invalid amount."
+      ],
+      "excludes": [
+        "Budget for 2026-07 set to"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "formato inválido",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Budget for 2026-07 set to'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Invalid amount.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 82.9
+    },
+    {
+      "id": "CP-19",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Gasto abaixo do orçamento não alerta",
+      "stdin": "8\n2026-07\n10\n1\n2026-07-21\nAlmoco\n9.99\nAlimentacao\n0\n",
+      "contains": [
+        "Expense added."
+      ],
+      "excludes": [
+        "Warning: expenses for 2026-07"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "limite inferior ao teto",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Warning: expenses for 2026-07'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to 10.0\nBudget for 2026-07: 10.00 | Spent: 0.00 | Remaining: 10.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 105.8
+    },
+    {
+      "id": "CP-20",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Gasto igual ao orçamento não alerta",
+      "stdin": "8\n2026-07\n10\n1\n2026-07-21\nAlmoco\n10.00\nAlimentacao\n0\n",
+      "contains": [
+        "Expense added."
+      ],
+      "excludes": [
+        "Warning: expenses for 2026-07"
+      ],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "igualdade ao teto",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense added.'",
+          "ok": true
+        },
+        {
+          "item": "Não contém 'Warning: expenses for 2026-07'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to 10.0\nBudget for 2026-07: 10.00 | Spent: 0.00 | Remaining: 10.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 130.9
+    },
+    {
+      "id": "CP-21",
+      "group": "BUDGET",
+      "technique": "BVA",
+      "name": "Gasto acima do orçamento alerta",
+      "stdin": "8\n2026-07\n10\n1\n2026-07-21\nAlmoco\n10.01\nAlimentacao\n0\n",
+      "contains": [
+        "Warning: expenses for 2026-07"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "limite superior ao teto",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Warning: expenses for 2026-07'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Enter budget amount (leave blank to just view): Budget for 2026-07 set to 10.0\nBudget for 2026-07: 10.00 | Spent: 0.00 | Remaining: 10.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\nWarning: expenses for 2026-07 total 10.01, exceeding the budget of 10.00.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 109.7
+    },
+    {
+      "id": "CP-22",
+      "group": "SUMMARY",
+      "technique": "EP",
+      "name": "Resumo soma valores corretamente",
+      "stdin": "1\n2026-07-21\nAlmoco\n10.25\nAlimentacao\n1\n2026-07-21\nAlmoco\n2.75\nAlimentacao\n5\n0\n",
+      "contains": [
+        "Total expenses: 13.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "duas despesas válidas e total",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Total expenses: 13.00'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Total expenses: 13.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 80.6
+    },
+    {
+      "id": "CP-23",
+      "group": "SUMMARY",
+      "technique": "EP",
+      "name": "Resumo do mês exclui mês distinto",
+      "stdin": "1\n2026-07-21\nAlmoco\n10\nAlimentacao\n1\n2026-08-21\nAlmoco\n5\nAlimentacao\n6\n2026-07\n0\n",
+      "contains": [
+        "Total for 2026-07: 10.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "partição pertence/não pertence ao mês",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Total for 2026-07: 10.00'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter month (YYYY-MM): Total for 2026-07: 10.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 88.1
+    },
+    {
+      "id": "CP-24",
+      "group": "CATEGORY",
+      "technique": "EP",
+      "name": "Filtro de categoria ignora maiúsculas",
+      "stdin": "1\n2026-07-21\nAlmoco\n7\nFood\n7\nfood\n0\n",
+      "contains": [
+        "Total for category 'food': 7.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "comparação case-insensitive do filtro",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém \"Total for category 'food': 7.00\"",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter category to filter by: 0: Expense(date=2026-07-21, description=Almoco, amount=7.0, category=Food)\nTotal for category 'food': 7.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 99.8
+    },
+    {
+      "id": "CP-25",
+      "group": "DELETE",
+      "technique": "BVA",
+      "name": "Índice -1 rejeitado",
+      "stdin": "3\n-1\n0\n",
+      "contains": [
+        "Invalid index."
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "índice abaixo do mínimo",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid index.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter the index of the expense to delete: Invalid index.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 82.2
+    },
+    {
+      "id": "CP-26",
+      "group": "DELETE",
+      "technique": "BVA",
+      "name": "Índice 0 exclui registro",
+      "stdin": "1\n2026-07-21\nAlmoco\n7\nAlimentacao\n3\n0\n5\n0\n",
+      "contains": [
+        "Expense deleted.",
+        "Total expenses: 0.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "primeiro índice válido com um registro",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expense deleted.'",
+          "ok": true
+        },
+        {
+          "item": "Contém 'Total expenses: 0.00'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter the index of the expense to delete: Expense deleted.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Total expenses: 0.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 78.9
+    },
+    {
+      "id": "CP-27",
+      "group": "UPDATE",
+      "technique": "BVA",
+      "name": "Alteração de valor zero rejeitada",
+      "stdin": "1\n2026-07-21\nAlmoco\n7\nAlimentacao\n2\n0\n2026-07-21\nAtualizada\n0\n5\n0\n",
+      "contains": [
+        "Amount must be greater than zero. Expense not updated.",
+        "Total expenses: 7.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "limite inferior em edição",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Amount must be greater than zero. Expense not updated.'",
+          "ok": true
+        },
+        {
+          "item": "Contém 'Total expenses: 7.00'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter the index of the expense to update: Enter new date (YYYY-MM-DD): Enter new description: Enter new amount: Amount must be greater than zero. Expense not updated.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Total expenses: 7.00\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 78.9
+    },
+    {
+      "id": "CP-28",
+      "group": "UPDATE",
+      "technique": "EP",
+      "name": "Alteração de valor NaN rejeitada",
+      "stdin": "1\n2026-07-21\nAlmoco\n7\nAlimentacao\n2\n0\n2026-07-21\nAtualizada\nNaN\n5\n0\n",
+      "contains": [
+        "Invalid amount. Expense not updated.",
+        "Total expenses: 7.00"
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "classe de valor especial inválido em edição",
+      "proposed": null,
+      "status": "FALHOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid amount. Expense not updated.'",
+          "ok": false
+        },
+        {
+          "item": "Contém 'Total expenses: 7.00'",
+          "ok": false
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter the index of the expense to update: Enter new date (YYYY-MM-DD): Enter new description: Enter new amount: Enter new category: Expense updated.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 77.1
+    },
+    {
+      "id": "CP-29",
+      "group": "EXPORT",
+      "technique": "EP",
+      "name": "Exportar descrição com vírgula mantém aspas",
+      "stdin": "1\n2026-07-21\ncafe, bolo\n12.5\nAlimentacao\n9\n0\n",
+      "contains": [
+        "Expenses exported to expenses_export.csv"
+      ],
+      "excludes": [],
+      "file_contains": {
+        "expenses_export.csv": "\"cafe, bolo\""
+      },
+      "file_absent": [],
+      "rationale": "serialização de CSV em integração",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Expenses exported to expenses_export.csv'",
+          "ok": true
+        },
+        {
+          "item": "expenses_export.csv contém '\"cafe, bolo\"'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Enter date (YYYY-MM-DD): Enter description: Enter amount: Enter category: Expense added.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses exported to expenses_export.csv\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 101.6
+    },
+    {
+      "id": "CP-30",
+      "group": "MENU",
+      "technique": "EP",
+      "name": "Opção de menu fora do intervalo rejeitada",
+      "stdin": "99\n0\n",
+      "contains": [
+        "Invalid choice. Please try again."
+      ],
+      "excludes": [],
+      "file_contains": {},
+      "file_absent": [],
+      "rationale": "controle de opção de menu",
+      "proposed": null,
+      "status": "PASSOU",
+      "checks": [
+        {
+          "item": "Contém 'Invalid choice. Please try again.'",
+          "ok": true
+        },
+        {
+          "item": "Código de saída 0",
+          "ok": true
+        }
+      ],
+      "stdout": "\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Invalid choice. Please try again.\n\nExpense Tracker Menu:\n0. Exit\n1. Add Expense\n2. Update Expense\n3. Delete Expense\n4. View All Expenses\n5. View Summary of All Expenses\n6. View Summary of Expenses for a Specific Month\n7. Filter Expenses by Category\n8. Set/View Monthly Budget\n9. Export Expenses to CSV\n10. View Summary Grouped by Category\nEnter your choice: Expenses saved. Exiting...\n",
+      "returncode": 0,
+      "duration_ms": 88.7
+    }
+  ]
+}

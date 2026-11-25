@@ -1,0 +1,31 @@
+﻿ID,Requisito,Módulo,Técnica,Cenário,Entradas de terminal (↵),Oracle - saída exigida,Oracle - saída proibida,Oracle - arquivo,Resultado exploratório,Justificativa
+CP-01,RF-01,VAL,EP / BVA,"Despesa R$ 0,01 válida",1 ↵ 2026-07-21 ↵ Almoco ↵ 0.01 ↵ Alimentacao ↵ 0 ↵ ,Expense added.,Amount must be greater than zero,expenses.txt: 0.01,PASSOU,valor positivo mínimo monetário escolhido
+CP-02,RF-01,VAL,BVA,Despesa zero rejeitada,1 ↵ 2026-07-21 ↵ Almoco ↵ 0 ↵ Alimentacao ↵ 0 ↵ ,Amount must be greater than zero. Expense not added.,Expense added.,expenses.txt: ,PASSOU,limite inferior inválido
+CP-03,RF-01,VAL,BVA,"Despesa negativa -0,01 rejeitada",1 ↵ 2026-07-21 ↵ Almoco ↵ -0.01 ↵ Alimentacao ↵ 0 ↵ ,Amount must be greater than zero. Expense not added.,Expense added.,,PASSOU,imediatamente abaixo do zero
+CP-04,RF-01,VAL,EP,Despesa positiva usual aceita,1 ↵ 2026-07-21 ↵ Almoco ↵ 15.50 ↵ Alimentacao ↵ 0 ↵ ,Expense added.,,expenses.txt: 15.5,PASSOU,classe válida ordinária
+CP-05,RF-01,VAL,EP,Texto alfabético rejeitado,1 ↵ 2026-07-21 ↵ Almoco ↵ abc ↵ Alimentacao ↵ 0 ↵ ,Invalid amount. Expense not added.,Expense added.,,PASSOU,classe de formato inválido
+CP-06,RF-01,VAL,EP,NaN deve ser rejeitado,1 ↵ 2026-07-21 ↵ Almoco ↵ NaN ↵ Alimentacao ↵ 0 ↵ ,Invalid amount. Expense not added.,Expense added.,,FALHOU,pré-requisito proposto: somente reais finitos
+CP-07,RF-01,VAL,EP,Infinity deve ser rejeitado,1 ↵ 2026-07-21 ↵ Almoco ↵ Infinity ↵ Alimentacao ↵ 0 ↵ ,Invalid amount. Expense not added.,Expense added.,,FALHOU,pré-requisito proposto: somente reais finitos
+CP-08,RF-01,VAL,EP,-Infinity deve ser rejeitado,1 ↵ 2026-07-21 ↵ Almoco ↵ -Infinity ↵ Alimentacao ↵ 0 ↵ ,,Expense added.,,PASSOU,classe especial negativa; mensagem pode ser de valor fora do intervalo
+CP-09,RF-01,VAL,EP / BVA,Overflow numérico rejeitado,1 ↵ 2026-07-21 ↵ Almoco ↵ 1e309 ↵ Alimentacao ↵ 0 ↵ ,Invalid amount. Expense not added.,Expense added.,,FALHOU,overflow para infinito deve ser inválido
+CP-10,RF-06,DATE,EP,Data bissexta válida 2024-02-29,1 ↵ 2024-02-29 ↵ Almoco ↵ 1.00 ↵ Alimentacao ↵ 0 ↵ ,Expense added.,,expenses.txt: 2024-02-29,PASSOU,classe data real válida
+CP-11,RF-06,DATE,EP / BVA,Data impossível 2025-02-29,1 ↵ 2025-02-29 ↵  ↵ 0 ↵ ,Invalid date format. Please use YYYY-MM-DD.,Expense added.,,PASSOU,fevereiro não bissexto
+CP-12,RF-06,DATE,EP,Mês inválido 2026-13,6 ↵ 2026-13 ↵  ↵ 0 ↵ ,Invalid month format. Please use YYYY-MM.,,,PASSOU,partição de meses fora do intervalo
+CP-13,RF-03 / RF-04,BUDGET,BVA,Orçamento zero permitido,8 ↵ 2026-07 ↵ 0 ↵ 0 ↵ ,Budget for 2026-07 set to 0.0,,"budgets.txt: 2026-07,0.0",PASSOU,"requisito proposto: orçamento não negativo, zero permite teto zero"
+CP-14,RF-03 / RF-04,BUDGET,BVA,Orçamento mínimo positivo,8 ↵ 2026-07 ↵ 0.01 ↵ 0 ↵ ,Budget for 2026-07 set to 0.01,,"budgets.txt: 2026-07,0.01",PASSOU,valor imediatamente acima de zero
+CP-15,RF-03 / RF-04,BUDGET,BVA,Orçamento negativo rejeitado,8 ↵ 2026-07 ↵ -0.01 ↵ 0 ↵ ,Invalid amount.,Budget for 2026-07 set to,,FALHOU,requisito proposto: orçamento não negativo
+CP-16,RF-03 / RF-04,BUDGET,EP,Orçamento NaN rejeitado,8 ↵ 2026-07 ↵ NaN ↵ 0 ↵ ,Invalid amount.,Budget for 2026-07 set to,,FALHOU,valor não numérico finito
+CP-17,RF-03 / RF-04,BUDGET,EP,Orçamento Infinity rejeitado,8 ↵ 2026-07 ↵ Infinity ↵ 0 ↵ ,Invalid amount.,Budget for 2026-07 set to,,FALHOU,valor não numérico finito
+CP-18,RF-03 / RF-04,BUDGET,EP,Orçamento com texto rejeitado,8 ↵ 2026-07 ↵ abc ↵ 0 ↵ ,Invalid amount.,Budget for 2026-07 set to,,PASSOU,formato inválido
+CP-19,RF-03 / RF-04,BUDGET,BVA,Gasto abaixo do orçamento não alerta,8 ↵ 2026-07 ↵ 10 ↵ 1 ↵ 2026-07-21 ↵ Almoco ↵ 9.99 ↵ Alimentacao ↵ 0 ↵ ,Expense added.,Warning: expenses for 2026-07,,PASSOU,limite inferior ao teto
+CP-20,RF-03 / RF-04,BUDGET,BVA,Gasto igual ao orçamento não alerta,8 ↵ 2026-07 ↵ 10 ↵ 1 ↵ 2026-07-21 ↵ Almoco ↵ 10.00 ↵ Alimentacao ↵ 0 ↵ ,Expense added.,Warning: expenses for 2026-07,,PASSOU,igualdade ao teto
+CP-21,RF-03 / RF-04,BUDGET,BVA,Gasto acima do orçamento alerta,8 ↵ 2026-07 ↵ 10 ↵ 1 ↵ 2026-07-21 ↵ Almoco ↵ 10.01 ↵ Alimentacao ↵ 0 ↵ ,Warning: expenses for 2026-07,,,PASSOU,limite superior ao teto
+CP-22,RF-05,SUMMARY,EP,Resumo soma valores corretamente,1 ↵ 2026-07-21 ↵ Almoco ↵ 10.25 ↵ Alimentacao ↵ 1 ↵ 2026-07-21 ↵ Almoco ↵ 2.75 ↵ Alimentacao ↵ 5 ↵ 0 ↵ ,Total expenses: 13.00,,,PASSOU,duas despesas válidas e total
+CP-23,RF-05,SUMMARY,EP,Resumo do mês exclui mês distinto,1 ↵ 2026-07-21 ↵ Almoco ↵ 10 ↵ Alimentacao ↵ 1 ↵ 2026-08-21 ↵ Almoco ↵ 5 ↵ Alimentacao ↵ 6 ↵ 2026-07 ↵ 0 ↵ ,Total for 2026-07: 10.00,,,PASSOU,partição pertence/não pertence ao mês
+CP-24,RF-05,CATEGORY,EP,Filtro de categoria ignora maiúsculas,1 ↵ 2026-07-21 ↵ Almoco ↵ 7 ↵ Food ↵ 7 ↵ food ↵ 0 ↵ ,Total for category 'food': 7.00,,,PASSOU,comparação case-insensitive do filtro
+CP-25,RF-08,DELETE,BVA,Índice -1 rejeitado,3 ↵ -1 ↵ 0 ↵ ,Invalid index.,,,PASSOU,índice abaixo do mínimo
+CP-26,RF-08,DELETE,BVA,Índice 0 exclui registro,1 ↵ 2026-07-21 ↵ Almoco ↵ 7 ↵ Alimentacao ↵ 3 ↵ 0 ↵ 5 ↵ 0 ↵ ,Expense deleted. | Total expenses: 0.00,,,PASSOU,primeiro índice válido com um registro
+CP-27,RF-02,UPDATE,BVA,Alteração de valor zero rejeitada,1 ↵ 2026-07-21 ↵ Almoco ↵ 7 ↵ Alimentacao ↵ 2 ↵ 0 ↵ 2026-07-21 ↵ Atualizada ↵ 0 ↵ 5 ↵ 0 ↵ ,Amount must be greater than zero. Expense not updated. | Total expenses: 7.00,,,PASSOU,limite inferior em edição
+CP-28,RF-02,UPDATE,EP,Alteração de valor NaN rejeitada,1 ↵ 2026-07-21 ↵ Almoco ↵ 7 ↵ Alimentacao ↵ 2 ↵ 0 ↵ 2026-07-21 ↵ Atualizada ↵ NaN ↵ 5 ↵ 0 ↵ ,Invalid amount. Expense not updated. | Total expenses: 7.00,,,FALHOU,classe de valor especial inválido em edição
+CP-29,RF-07,EXPORT,EP,Exportar descrição com vírgula mantém aspas,"1 ↵ 2026-07-21 ↵ cafe, bolo ↵ 12.5 ↵ Alimentacao ↵ 9 ↵ 0 ↵ ",Expenses exported to expenses_export.csv,,"expenses_export.csv: ""cafe, bolo""",PASSOU,serialização de CSV em integração
+CP-30,RF-08,MENU,EP,Opção de menu fora do intervalo rejeitada,99 ↵ 0 ↵ ,Invalid choice. Please try again.,,,PASSOU,controle de opção de menu
