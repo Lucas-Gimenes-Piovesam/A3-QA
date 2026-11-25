@@ -1,0 +1,100 @@
+{
+  "data_inspecao_utc": "2026-11-25",
+  "repositorio": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA",
+  "commit_main_inspecionado": "5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd",
+  "fontes_primarias": [
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/ExpenseTracker.java",
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/Expense.java",
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/ExpenseStorage.java",
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/BudgetStorage.java",
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/FinancialRules.java",
+    "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/blob/5bbc42c25735d6e6c54bb9e81ea3f03db34ff7bd/src/Expense_Tracker/CsvUtil.java"
+  ],
+  "excertos_verificados": [
+    {
+      "arquivo": "src/Expense_Tracker/ExpenseTracker.java",
+      "linhas": [
+        323,
+        337
+      ],
+      "constatacao": "Entrada da CLI validada por LocalDate.parse"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/ExpenseTracker.java",
+      "linhas": [
+        308,
+        315
+      ],
+      "constatacao": "monthKey extrai prefixo textual sem parse completo"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/ExpenseStorage.java",
+      "linhas": [
+        25,
+        49
+      ],
+      "constatacao": "Construtor Expense recebe data textual do arquivo sem LocalDate.parse"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/ExpenseStorage.java",
+      "linhas": [
+        15,
+        24
+      ],
+      "constatacao": "saveExpenses grava diretamente em arquivo destino com FileWriter"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/BudgetStorage.java",
+      "linhas": [
+        49,
+        59
+      ],
+      "constatacao": "saveBudgets grava diretamente em arquivo destino com FileWriter"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/Expense.java",
+      "linhas": [
+        9,
+        16
+      ],
+      "constatacao": "validacao do valor financeiro no construtor"
+    },
+    {
+      "arquivo": "src/Expense_Tracker/FinancialRules.java",
+      "linhas": [
+        8,
+        15
+      ],
+      "constatacao": "validacao de despesa e orcamento finitos"
+    }
+  ],
+  "change_requests": [
+    {
+      "id": "CR-09-01",
+      "status": "implementada_pre_E9",
+      "tipo": "corretiva",
+      "arquivo": "docs/entregavel-09-manutencao-evolucao/solicitacoes/CR-09-01-validacao-monetaria.md"
+    },
+    {
+      "id": "CR-09-02",
+      "status": "proposta",
+      "tipo": "preventiva",
+      "arquivo": "docs/entregavel-09-manutencao-evolucao/solicitacoes/CR-09-02-persistencia-atomica.md"
+    },
+    {
+      "id": "CR-09-03",
+      "status": "proposta",
+      "tipo": "corretiva_potencial",
+      "arquivo": "docs/entregavel-09-manutencao-evolucao/solicitacoes/CR-09-03-datas-importadas.md"
+    },
+    {
+      "id": "CR-09-04",
+      "status": "proposta",
+      "tipo": "perfectiva",
+      "arquivo": "docs/entregavel-09-manutencao-evolucao/solicitacoes/CR-09-04-separar-interface-dominio.md"
+    }
+  ],
+  "decisao": "Refatoracao incremental (recomendacao proposta, ainda nao aprovada em reuniao)",
+  "evidencia_pipeline": "https://github.com/Lucas-Gimenes-Piovesam/A3-QA/actions/runs/45527258647",
+  "observacao": "Documento de avaliacao; nao representa implementacao das CRs abertas ou execucao de seus testes propostos."
+}
