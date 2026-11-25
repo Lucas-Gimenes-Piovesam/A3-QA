@@ -1,0 +1,51 @@
+name: A3 Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: a3-qa-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci-quality-gate:
+    name: ci-quality-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout do repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar JDK 21 e cache Maven
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar, testar, gerar cobertura e analisar codigo
+        run: mvn --batch-mode --no-transfer-progress clean verify
+
+      - name: Quality gate - cobertura de metodos financeiros criticos
+        run: python3 scripts/check_coverage.py target/site/jacoco/jacoco.xml --output target/quality-gate.json
+
+      - name: Publicar relatorios, mesmo em falhas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorios-qa-${{ github.run_number }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            target/surefire-reports/
+            target/site/jacoco/
+            target/checkstyle-result.xml
+            target/quality-gate.json
+            target/*.jar
